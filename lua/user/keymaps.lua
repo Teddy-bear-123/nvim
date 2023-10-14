@@ -27,7 +27,7 @@ keymap("n", "<C-l>", "<C-w>l", opts)
 keymap("n", "<C-d>", "<C-d>zz", opts)
 keymap("n", "<C-u>", "<C-u>zz", opts)
 keymap("n", "n", "nzzzv", opts)
-keymap("n", "N", "Nzzzv", opts) 
+keymap("n", "N", "Nzzzv", opts)
 
 -- Resize with arrows
 keymap("n", "<C-Up>", ":resize -2<CR>", opts)
@@ -64,6 +64,11 @@ keymap("x", "J", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "K", ":m '<-2<CR>gv=gv", opts)
 keymap("x", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 keymap("x", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+
+-- Glow --
+-- Open markdown preview_config
+keymap("n", "<leader>m", ":Glow<CR>", opts)
 
 -- Terminal --
 -- Better terminal navigation
