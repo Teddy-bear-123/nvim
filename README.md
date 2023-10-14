@@ -5,7 +5,7 @@
 ## Installation
 
 ### Prerequisites
-- Neovim (Follow [this](https://github.com/neovim/neovim/releases/)) (note that for debian systems, apt doesn't have the latest one, use the AppImage/build from source/some other form)
+- Neovim (Follow [this](https://github.com/neovim/neovim/releases/)) (note that for debian systems, 'apt' has version 0.7, while 0.9 is the latest. Use the AppImage/build from source/some other form)
 - Node
 - lazy git
 - Nerdfonts
@@ -41,7 +41,7 @@ Clone the repository (make a backup your current `~/.config/nvim` directory if y
 git clone https://github.com/Teddy-bear-123/nvim.git ~/.config/nvim
 
 # Windows
-git clone https://github.com/NvChad/NvChad $HOME\AppData\Local\nvim 
+git clone https://github.com/Teddy-bear-123/nvim.git $HOME\AppData\Local\nvim 
 ```
 Run `nvim` and wait for packer to install your plugins. 
 ### Highly inspired by:  
