@@ -102,6 +102,7 @@ return packer.startup(function(use)
 	use({ "ThePrimeagen/vim-be-good" })
 
 	-- Markdown
+    use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",

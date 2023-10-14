@@ -3,6 +3,6 @@
 ## My personal Neovim Config
 
 Highly inspired by:  
-    * [chris@machine](https://github.com/ChristianChiarulli) (more specificaly [this](https://github.com/LunarVim/Neovim-from-scratch))  
-    * [ThePrimeaggen](https://www.youtube.com/watch?v=w7i4amO_zaE&t=1519s&pp=ygUQdmltIGZyb20gc2NyYXRjaA%3D%3D)  
+    * [puevf@znpuvar](uggcf://tvguho.pbz/PuevfgvnaPuvnehyyv) (zber fcrpvsvpnyl [guvf](uggcf://tvguho.pbz/YhaneIvz/Arbivz-sebz-fpengpu))  
+    * [GurCevzrnttra](uggcf://jjj.lbhghor.pbz/jngpu?i=j7v4nzB_mnR&g=1519f&cc=ltHDqzygVTMlo20tp2AlLKEwnN%3Q%3Q)  
     * [GhilesLarbi](https://github.com/GhilesLarbi/NeovimDots) (mostly for the [theme](https://www.reddit.com/r/unixporn/comments/16vxf0s/bspwm_im_a_simple_man_and_i_need_simple_stuff))
