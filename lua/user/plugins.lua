@@ -82,10 +82,22 @@ return packer.startup(function(use)
 	use({ "neovim/nvim-lspconfig" }) -- enable LSP
 	use({ "williamboman/mason.nvim" }) -- simple to use language server installer
 	use({ "williamboman/mason-lspconfig.nvim" })
-	use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters
+	use({ "nvimtools/none-ls.nvim" }) -- for formatters and linters
 	use({ "RRethy/vim-illuminate" })
 	use({ "onsails/lspkind-nvim" })
 	use({ "lervag/vimtex" })
+	use({
+		"hinell/lsp-timeout.nvim",
+		requires = { "neovim/nvim-lspconfig" },
+		setup = function()
+			vim.g["lsp-timeout-config"] = {
+				stopTimeout = 1000 * 60 * 5, --     stopTimeout  = 1000 * 60 * 5,  -- ms, timeout before stopping all LSP servers
+				startTimeout = 1000 * 10, -- ms, timeout before restart
+				silent = false, -- true to suppress notifications
+			}
+		end,
+	})
+
 	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
 
@@ -102,7 +114,13 @@ return packer.startup(function(use)
 	use({ "ThePrimeagen/vim-be-good" })
 
 	-- Markdown
-    use {"ellisonleao/glow.nvim", config = function() require("glow").setup() end}
+	use({
+		"ellisonleao/glow.nvim",
+		config = function()
+			require("glow").setup()
+		end,
+	})
+
 	use({
 		"iamcco/markdown-preview.nvim",
 		run = "cd app && npm install",
@@ -110,6 +128,20 @@ return packer.startup(function(use)
 			vim.g.mkdp_filetypes = { "markdown" }
 		end,
 		ft = { "markdown" },
+	})
+
+	-- Leetcode
+	use({ "MunifTanjim/nui.nvim" })
+	use({ "rcarriga/nvim-notify" })
+	use({
+		"kawre/leetcode.nvim",
+		opts = {
+			arg = "leetcode.nvim",
+			lang = "python3",
+			domain = "com",
+			directory = vim.fn.stdpath("data") .. "/leetcode/",
+			logging = true,
+		},
 	})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

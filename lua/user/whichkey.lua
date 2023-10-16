@@ -96,7 +96,7 @@ local mappings = {
   },
   ["F"] = { "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown{previewer = false})<cr>", "Find Text (In Current Buffer)" },
   ["P"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-  ["|"] = { ":Glow", "Glow" },
+  ["|"] = { ":Glow<cr>", "Glow" },
   ["r"] = { ":source $HOME/.config/nvim/init.lua <CR>", "Source" },
   p = {
     name = "Packer",
