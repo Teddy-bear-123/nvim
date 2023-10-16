@@ -1,9 +1,3 @@
----
-title: README
-created: 2023-10-14T22:40:09.297Z
-modified: 2023-10-16T18:52:13.325Z
----
-
 # Neovim Config
 
 <a href="https://dotfyle.com/Teddy-bear-123/nvim"><img src="https://dotfyle.com/Teddy-bear-123/nvim/badges/plugins?style=flat" /></a>
