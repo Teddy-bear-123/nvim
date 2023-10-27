@@ -165,6 +165,12 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/leetcode.nvim",
     url = "https://github.com/kawre/leetcode.nvim"
   },
+  ["lsp-timeout.nvim"] = {
+    loaded = true,
+    needs_bufread = false,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/opt/lsp-timeout.nvim",
+    url = "https://github.com/hinell/lsp-timeout.nvim"
+  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -320,6 +326,13 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Setup for: lsp-timeout.nvim
+time([[Setup for lsp-timeout.nvim]], true)
+try_loadstring("\27LJ\2\n_\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\3\17startTimeout\3êN\16stopTimeout\3‡ß\18\vsilent\1\23lsp-timeout-config\6g\bvim\0", "setup", "lsp-timeout.nvim")
+time([[Setup for lsp-timeout.nvim]], false)
+time([[packadd for lsp-timeout.nvim]], true)
+vim.cmd [[packadd lsp-timeout.nvim]]
+time([[packadd for lsp-timeout.nvim]], false)
 -- Setup for: markdown-preview.nvim
 time([[Setup for markdown-preview.nvim]], true)
 try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")

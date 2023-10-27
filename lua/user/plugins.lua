@@ -86,11 +86,25 @@ return packer.startup(function(use)
 	use({ "RRethy/vim-illuminate" })
 	use({ "onsails/lspkind-nvim" })
 	use({ "lervag/vimtex" })
+    use({
+      "hinell/lsp-timeout.nvim",
+      requires={ "neovim/nvim-lspconfig" },
+      setup = function()
+        vim.g["lsp-timeout-config"] = {
+            stopTimeout  = 1000 * 60 * 5,  --     stopTimeout  = 1000 * 60 * 5,  -- ms, timeout before stopping all LSP servers
+            startTimeout = 1000 * 10,      -- ms, timeout before restart
+            silent       = false           -- true to suppress notifications
+        }
+         end
+    })
 
 
 
 
-    -- Telescope
+
+
+
+	-- Telescope
 	use({ "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" })
 
 	-- Treesitter
