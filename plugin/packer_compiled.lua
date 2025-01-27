@@ -94,6 +94,11 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
+  ["cmp-ai"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/cmp-ai",
+    url = "https://github.com/tzachar/cmp-ai"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -139,6 +144,11 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/friendly-snippets",
     url = "https://github.com/rafamadriz/friendly-snippets"
   },
+  ["gen.nvim"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/gen.nvim",
+    url = "https://github.com/David-Kunz/gen.nvim"
+  },
   ["gitsigns.nvim"] = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
@@ -160,11 +170,6 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
-  ["leetcode.nvim"] = {
-    loaded = true,
-    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/leetcode.nvim",
-    url = "https://github.com/kawre/leetcode.nvim"
-  },
   ["lsp-timeout.nvim"] = {
     loaded = true,
     needs_bufread = false,
@@ -180,6 +185,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["magma-nvim"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/magma-nvim",
+    url = "https://github.com/dccsillag/magma-nvim"
   },
   ["markdown-preview.nvim"] = {
     loaded = false,
@@ -212,6 +222,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/none-ls.nvim",
     url = "https://github.com/nvimtools/none-ls.nvim"
+  },
+  ["nui-components.nvim"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/nui-components.nvim",
+    url = "https://github.com/grapp-dev/nui-components.nvim"
   },
   ["nui.nvim"] = {
     loaded = true,
@@ -278,11 +293,6 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["presence.nvim"] = {
-    loaded = true,
-    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/presence.nvim",
-    url = "https://github.com/andweeb/presence.nvim"
-  },
   ["project.nvim"] = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/project.nvim",
@@ -292,6 +302,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/rose-pine",
     url = "https://github.com/rose-pine/neovim"
+  },
+  ["supermaven-nvim"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/supermaven-nvim",
+    url = "https://github.com/supermaven-inc/supermaven-nvim"
   },
   ["telescope.nvim"] = {
     loaded = true,
@@ -308,6 +323,12 @@ _G.packer_plugins = {
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["usage.nvim"] = {
+    config = { "\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nusage\frequire\0" },
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/usage.nvim",
+    url = "https://github.com/Aityz/usage.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/vim-bbye",
@@ -317,6 +338,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/vim-be-good",
     url = "https://github.com/ThePrimeagen/vim-be-good"
+  },
+  ["vim-dispatch"] = {
+    loaded = true,
+    path = "/home/cv-rishi/.local/share/nvim/site/pack/packer/start/vim-dispatch",
+    url = "https://github.com/tpope/vim-dispatch"
   },
   ["vim-illuminate"] = {
     loaded = true,
@@ -336,21 +362,25 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: markdown-preview.nvim
-time([[Setup for markdown-preview.nvim]], true)
-try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
-time([[Setup for markdown-preview.nvim]], false)
 -- Setup for: lsp-timeout.nvim
 time([[Setup for lsp-timeout.nvim]], true)
-try_loadstring("\27LJ\2\n]\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\3\vsilent\1\17startTimeout\3êN\16stopTimeout\3‡ß\18\21lspTimeoutConfig\6g\bvim\0", "setup", "lsp-timeout.nvim")
+try_loadstring("\27LJ\2\n]\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\0\3\16stopTimeout\3‡ß\18\vsilent\1\17startTimeout\3êN\21lspTimeoutConfig\6g\bvim\0", "setup", "lsp-timeout.nvim")
 time([[Setup for lsp-timeout.nvim]], false)
 time([[packadd for lsp-timeout.nvim]], true)
 vim.cmd [[packadd lsp-timeout.nvim]]
 time([[packadd for lsp-timeout.nvim]], false)
+-- Setup for: markdown-preview.nvim
+time([[Setup for markdown-preview.nvim]], true)
+try_loadstring("\27LJ\2\n=\0\0\2\0\4\0\0056\0\0\0009\0\1\0005\1\3\0=\1\2\0K\0\1\0\1\2\0\0\rmarkdown\19mkdp_filetypes\6g\bvim\0", "setup", "markdown-preview.nvim")
+time([[Setup for markdown-preview.nvim]], false)
 -- Config for: glow.nvim
 time([[Config for glow.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\tglow\frequire\0", "config", "glow.nvim")
 time([[Config for glow.nvim]], false)
+-- Config for: usage.nvim
+time([[Config for usage.nvim]], true)
+try_loadstring("\27LJ\2\n3\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\nusage\frequire\0", "config", "usage.nvim")
+time([[Config for usage.nvim]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

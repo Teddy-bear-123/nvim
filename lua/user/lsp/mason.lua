@@ -1,15 +1,18 @@
 local servers = {
 	"lua_ls",
-    "cssls",
+	"cssls",
 	"html",
-	"tsserver",
+	"ts_ls",
 	"pyright",
 	"bashls",
 	"jsonls",
-    "clangd",
-    "grammarly",
-    "marksman",
-    "eslint",
+	"clangd",
+	"grammarly",
+	"marksman",
+	"eslint",
+	"texlab",
+	"ruff_lsp",
+    "rust_analyzer"
 	-- "yamlls",
 }
 
@@ -36,6 +39,28 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
 	return
 end
+
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+
+-- Inside the loop where you configure LSP servers
+for _, server in pairs(servers) do
+    opts = {
+        on_attach = require("user.lsp.handlers").on_attach,
+        capabilities = capabilities, -- Use the updated capabilities
+    }
+
+    server = vim.split(server, "@")[1]
+
+    local require_ok, conf_opts = pcall(require, "user.lsp.settings." .. server)
+    if require_ok then
+        opts = vim.tbl_deep_extend("force", conf_opts, opts)
+    end
+
+    lspconfig[server].setup(opts)
+end
+
 
 local opts = {}
 

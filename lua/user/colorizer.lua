@@ -6,9 +6,14 @@ end
 
 -- Alwyas update the color values in cmp_docs even if it not focused
 require 'colorizer'.setup {
+    default_options = {
+        css_fn = true;
+    };
   filetypes = {
     '*'; -- Highlight all files, but customize some others.
-    cmp_docs = {always_update = true}
+    '!tex',
+    cmp_docs = {always_update = true};
+
   },
 }
 
