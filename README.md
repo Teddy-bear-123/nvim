@@ -31,4 +31,4 @@ rm nvim-lspconfig -rf
 └── README.md  
 ```
 
-
+Credit to [sylvan franklin](https://github.com/SylvanFranklin/.config/blob/main/nvim/init.lua)
