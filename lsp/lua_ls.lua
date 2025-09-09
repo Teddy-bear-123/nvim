@@ -70,16 +70,27 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'lua-language-server' },
-  filetypes = { 'lua' },
-  root_markers = {
-    '.luarc.json',
-    '.luarc.jsonc',
-    '.luacheckrc',
-    '.stylua.toml',
-    'stylua.toml',
-    'selene.toml',
-    'selene.yml',
-    '.git',
-  },
+	cmd = { 'lua-language-server' },
+	filetypes = { 'lua' },
+	root_markers = {
+		'.luarc.json',
+		'.luarc.jsonc',
+		'.luacheckrc',
+		'.stylua.toml',
+		'stylua.toml',
+		'selene.toml',
+		'selene.yml',
+		'.git',
+	},
+	settings = {
+		Lua = {
+			diagnostics = {
+				globals = { "vim" }, -- 👈 tell lua_ls that `vim` is a global
+			},
+			workspace = {
+				library = vim.api.nvim_get_runtime_file("", true), -- adds Neovim runtime files
+				checkThirdParty = false,                           -- avoid prompts about 3rd party libs
+			},
+		},
+	},
 }
