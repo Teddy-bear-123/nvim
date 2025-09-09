@@ -13,25 +13,25 @@ null_ls.setup({
 	debug = true,
 	sources = {
 		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
-		formatting.black.with({ extra_args = { "--fast" } }),
+		formatting.black.with({ extra_args = { "--fast", "--line-length", "99" } }),
 		formatting.stylua,
 		formatting.biome,
 		formatting.markdownlint,
 
 		require("none-ls.diagnostics.flake8").with({
 			extra_args = {
-				"--max-line-length=88",
-				"--ignore=E501, W503, W605",
+				"--max-line-length=99",
+				"--ignore=E501, W503, W605, E203",
 			},
 		}),
 		require("none-ls.formatting.latexindent").with({
 			extra_args = {
-                "--silent",
-                "--overwrite",
-                "-l", "/home/cv-rishi/.config/defaultSettings.yaml"
-
+				"--silent",
+				"--overwrite",
+				"-l",
+				"/home/cv-rishi/.config/defaultSettings.yaml",
 			},
 		}),
-        require("none-ls.formatting.eslint_d"),
+		require("none-ls.formatting.eslint_d"),
 	},
 })
