@@ -11,7 +11,7 @@
 ---
 --- `biome` supports monorepos by default. It will automatically find the `biome.json` corresponding to the package you are working on, as described in the [documentation](https://biomejs.dev/guides/big-projects/#monorepo). This works without the need of spawning multiple instances of `biome`, saving memory.
 
-local util = require 'lspconfig.util'
+local util = require 'vim.lsp.util'
 
 ---@type vim.lsp.Config
 return {

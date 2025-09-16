@@ -11,7 +11,15 @@
 
 ---@type vim.lsp.Config
 return {
-  cmd = { 'tsp-server', '--stdio' },
-  filetypes = { 'typespec' },
-  root_markers = { 'tspconfig.yaml', '.git' },
+	cmd = { 'tsp-server', '--stdio' },
+	filetypes = { 'typespec' },
+	root_markers = { 'tspconfig.yaml', '.git' },
+	settings = {
+		typescript = {
+			format = { enable = false }, -- Use biome
+		},
+		javascript = {
+			format = { enable = false }, -- Use biome
+		},
+	},
 }

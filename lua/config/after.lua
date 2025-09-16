@@ -3,7 +3,9 @@ require "mason".setup()
 require "mini.pick".setup()
 require "oil".setup()
 
-vim.lsp.enable({ "lua_ls", "jdtls", "clangd" })
+vim.lsp.enable({ "lua_ls", "clangd", "ruff", "pyright", "prettypst", "tinymist", "rust_analyzer", "biome", "tsserver", "latexindent", "tectonic" })
+
+-- require('lspconfig').pyright.setup({})
 
 require('nvim-treesitter.configs').setup({
 	highlight = { enable = true, },
@@ -22,3 +24,5 @@ set_custom_highlights()
 
 -- Hide end-of-buffer markers
 vim.cmd("highlight EndOfBuffer guibg=bg guifg=bg")
+
+

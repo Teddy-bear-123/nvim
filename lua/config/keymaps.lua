@@ -26,3 +26,5 @@ vim.api.nvim_create_autocmd("VimEnter", {
     map('n', 'gl', vim.diagnostic.open_float)
   end,
 })
+
+
