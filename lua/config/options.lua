@@ -1,7 +1,5 @@
--- Set leader key
 vim.g.mapleader = " "
 
--- General options
 vim.cmd([[set mouse=]])
 vim.opt.winborder = "rounded"
 vim.opt.hlsearch = false
@@ -17,17 +15,18 @@ vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
-vim.opt.completeopt = { "menu", "menuone", "noselect" }
+vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 vim.opt.pumheight = 10
 
+
+-- kainda want to 
 vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
         if client:supports_method('textDocument/completion') then
-            -- Set omnifunc here
+						-- idk weird, it kept not attacking lsp to omnifunc every time, workaround
             vim.bo[args.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-            -- Optional: trigger autocompletion on EVERY keypress
             local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
             client.server_capabilities.completionProvider.triggerCharacters = chars
             vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })

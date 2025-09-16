@@ -3,6 +3,7 @@ require("lazy").setup({
 		{ "Shatur/neovim-ayu",     priority = 1000, lazy = false },
 		{ "stevearc/oil.nvim",     config = true },
 		{ "echasnovski/mini.pick", version = false, config = true },
+		{ "nvim-mini/mini.bufremove", version = false },
 		{
 			"nvim-treesitter/nvim-treesitter",
 			build = ":TSUpdate",
@@ -15,6 +16,5 @@ require("lazy").setup({
 		{ "mason-org/mason.nvim",        config = true },
 		{ "L3MON4D3/LuaSnip" },
 	},
-	-- install = { colorscheme = { "vague" } },
 	checker = { enabled = true },
 })
