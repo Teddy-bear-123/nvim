@@ -18,14 +18,14 @@ map("i", "<C-l>", "<Esc>la", { noremap = true })
 
 
 -- Some how this works, lets me open files from Oil, and in buffers.
-vim.keymap.set('n', '<C-f>', function()
-	local fname = vim.fn.expand('<cfile>') -- or '<cWORD>'?
-	if fname == nil or fname == '' then
-		vim.cmd('Open .')
-		return
-	end
-	vim.cmd('Open ' .. fname)
-end, { noremap = true, silent = true, desc = "Open but kainda better." })
+-- vim.keymap.set('n', '<C-O>', function()
+-- 	local fname = vim.fn.expand('<cfile>') -- or '<cWORD>'?
+-- 	if fname == nil or fname == '' then
+-- 		vim.cmd('Open .')
+-- 		return
+-- 	end
+-- 	vim.cmd('Open ' .. fname)
+-- end, { noremap = true, silent = true, desc = "Open but kainda better." })
 
 
 map('i', '<c-e>', function() vim.lsp.completion.get() end)

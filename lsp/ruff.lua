@@ -26,12 +26,12 @@
 ---
 --- Refer to the [documentation](https://docs.astral.sh/ruff/editors/) for more details.
 
----@type vim.lsp.Config
 
-require('lspconfig').ruff.setup({
+---@type vim.lsp.ClientConfig
+vim.lsp.config("ruff", {
 	cmd = { 'ruff', 'server' },
 	filetypes = { 'python' },
-	root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+	-- root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
 	settings = {
 		lint = {
 			enable = true,
