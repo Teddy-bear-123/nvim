@@ -50,6 +50,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
         map('n', '<leader>fg', telescope.live_grep, { desc = "Live grep" })
         map('n', '<leader>fb', telescope.buffers, { desc = "Buffers (Telescope)" })
         map('n', '<leader>fd', telescope.diagnostics, { desc = "Diagnostics (Telescope)" })
+        map('n', '<leader>T', ':Telescope<CR>', { desc = "Telescoped" })
 
 
         -- Trouble
