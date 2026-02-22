@@ -17,7 +17,7 @@ local lsps = {
     -- Go
     "gopls",
 
-   -- C3
+    -- C3
     -- "c3_lsp",
 
     -- Python
@@ -86,19 +86,27 @@ vim.filetype.add({
 -- }
 
 
-require('nvim-treesitter.configs').setup({
-    highlight = { enable = true, },
-    ensure_installed = { "lua", "vim", "vimdoc", "python", "javascript", "typescript", "rust", "c", "cpp", "c3" },
-    auto_install = true,
-    sync_install = true,
-    modules = {},
-    ignore_install = {},
-    install_dir = "",
+-- require('nvim-treesitter.configs').setup({
+--     highlight = { enable = true, },
+--     ensure_installed = { "lua", "vim", "vimdoc", "python", "javascript", "typescript", "rust", "c", "cpp", "c3" },
+--     auto_install = true,
+--     sync_install = true,
+--     modules = {},
+--     ignore_install = {},
+--     install_dir = "",
+-- })
+
+local telescope = require("telescope")
+local open_with_trouble = require("trouble.sources.telescope").open
+
+telescope.setup({
+    defaults = {
+        mappings = {
+            i = { ["<c-t>"] = open_with_trouble },
+            n = { ["<c-t>"] = open_with_trouble },
+        },
+    },
 })
-
-
-
-
 
 vim.cmd.colorscheme("ayu-dark")
 

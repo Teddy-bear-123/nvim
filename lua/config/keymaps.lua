@@ -36,13 +36,32 @@ map('i', '<c-e>', function() vim.lsp.completion.get() end)
 
 -- Plugin keymaps (loaded after plugins)
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		map('n', '<leader>q', require("mini.bufremove").delete)
-		map('n', '<leader>f', ":Pick files<CR>")
-		map('n', '<leader>h', ":Pick help<CR>")
-		map('n', '<leader>r', ":Pick buffers<CR>")
-		map('n', '<leader>e', ":Oil<CR>")
-		map('n', '<leader>lf', vim.lsp.buf.format)
-		map('n', 'gl', vim.diagnostic.open_float)
-	end,
+    callback = function()
+        local telescope = require("telescope.builtin")
+        -- Mini / Pick for files / buffers
+        map('n', '<leader>q', require("mini.bufremove").delete)
+        map('n', '<leader>f', ":Pick files<CR>")
+        map('n', '<leader>h', ":Pick help<CR>")
+        map('n', '<leader>r', ":Pick buffers<CR>")
+        map('n', '<leader>e', ":Oil<CR>")
+
+
+        -- Telescope
+        map('n', '<leader>fg', telescope.live_grep, { desc = "Live grep" })
+        map('n', '<leader>fb', telescope.buffers, { desc = "Buffers (Telescope)" })
+        map('n', '<leader>fd', telescope.diagnostics, { desc = "Diagnostics (Telescope)" })
+
+
+        -- Trouble
+        map('n', '<leader>xx', '<cmd>Trouble diagnostics toggle<cr>', { desc = "Diagnostics (Trouble)" })
+        map('n', '<leader>xX', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>', { desc = "Buffer diagnostics" })
+        map('n', '<leader>cs', '<cmd>Trouble symbols toggle focus=false<cr>', { desc = "Symbols" })
+        map('n', '<leader>cl', '<cmd>Trouble lsp toggle focus=false win.position=right<cr>', { desc = "LSP (Trouble)" })
+        map('n', '<leader>xL', '<cmd>Trouble loclist toggle<cr>', { desc = "Location list" })
+        map('n', '<leader>xQ', '<cmd>Trouble qflist toggle<cr>', { desc = "Quickfix list" })
+
+        -- LSP
+        map('n', '<leader>lf', vim.lsp.buf.format)
+        map('n', 'gl', vim.diagnostic.open_float)
+    end,
 })
