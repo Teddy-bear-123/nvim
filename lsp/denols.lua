@@ -63,8 +63,8 @@ local function denols_handler(err, result, ctx, config)
   lsp.handlers[ctx.method](err, result, ctx, config)
 end
 
----@type vim.lsp.Config
-return {
+---@type vim.lsp.ClientConfig
+vim.lsp.config("denols", {
   cmd = { 'deno', 'lsp' },
   cmd_env = { NO_COLOR = true },
   filetypes = {
@@ -75,7 +75,6 @@ return {
     'typescriptreact',
     'typescript.tsx',
   },
-  root_markers = { 'deno.json', 'deno.jsonc', '.git' },
   settings = {
     deno = {
       enable = true,
@@ -108,4 +107,4 @@ return {
       desc = 'Cache a module and all of its dependencies.',
     })
   end,
-}
+})

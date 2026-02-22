@@ -26,26 +26,33 @@
 ---
 --- Refer to the [documentation](https://docs.astral.sh/ruff/editors/) for more details.
 
+local function ruff_cmd()
+    local ok = vim.fn.system({ "ruff", "--version" })
+    if vim.v.shell_error == 0 then
+        return { "ruff", "server" }
+    end
+    return { "uv", "run", "ruff", "server" }
+end
 
 ---@type vim.lsp.ClientConfig
 vim.lsp.config("ruff", {
-	cmd = { 'ruff', 'server' },
-	filetypes = { 'python' },
-	-- root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
-	settings = {
-		lint = {
-			enable = true,
-			args = {
-				"--line-length=99",
-				"--select=E,W,F,I,N,UP,YTT,ANN,S,BLE,FBT,B,A,COM,C4,DTZ,T10,EM,EXE,ISC,ICN,G,INP,PIE,T20,PT,Q,RSE,RET,SLF,SIM,TID,TCH,ARG,PTH,ERA,PD,PGH,PL,TRY,NPY,RUF",
-				"--ignore=E501,W503,W605,E203"
-			}
-		},
-		format = {
-			enable = true,
-			args = {
-				"--line-length=99"
-			}
-		}
-	}
+    cmd = ruff_cmd(),
+    filetypes = { 'python' },
+    -- root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+    settings = {
+        lint = {
+            enable = true,
+            args = {
+                "--line-length=88",
+                "--select=E,W,F,I,N,UP,YTT,ANN,S,BLE,FBT,B,A,COM,C4,DTZ,T10,EM,EXE,ISC,ICN,G,INP,PIE,T20,PT,Q,RSE,RET,SLF,SIM,TID,TCH,ARG,PTH,ERA,PD,PGH,PL,TRY,NPY,RUF",
+                "--ignore=E501,W503,W605,E203"
+            }
+        },
+        format = {
+            enable = true,
+            args = {
+                "--line-length88"
+            }
+        }
+    }
 })

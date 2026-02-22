@@ -17,6 +17,10 @@ map("i", "<C-k>", "<Esc>ka", { noremap = true })
 map("i", "<C-l>", "<Esc>la", { noremap = true })
 
 
+-- Visual mode
+map('x', '<', '<gv^')
+map('x', '>', '>gv^')
+
 -- Some how this works, lets me open files from Oil, and in buffers.
 -- vim.keymap.set('n', '<C-O>', function()
 -- 	local fname = vim.fn.expand('<cfile>') -- or '<cWORD>'?
