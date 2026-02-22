@@ -10,10 +10,11 @@
 --- `LspTinymistGetDocumentTrace`, `LspTinymistGetWorkspaceLabels`, and
 --- `LspTinymistGetDocumentMetrics`.
 
----@param command_name string
----@param client vim.lsp.Client
----@param bufnr integer
----@return fun():nil run_tinymist_command, string cmd_name, string cmd_desc
+-- @param command_name string
+-- @param client vim.lsp.Client
+-- @param bufnr integer
+-- @return fun():nil run_tinymist_command, string cmd_name, string cmd_desc
+---
 -- local function create_tinymist_command(command_name, client, bufnr)
 --   local export_type = command_name:match 'tinymist%.export(%w+)'
 --   local info_type = command_name:match 'tinymist%.(%w+)'
