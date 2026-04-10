@@ -58,10 +58,30 @@
 -- })
 
 
+
+
+local function ruff_cmd()
+    local result = vim.fn.system({ "ruff", "--version" })
+
+    -- If command succeeded, use it
+    if vim.v.shell_error == 0 then
+        return { "ruff", "server" }
+    end
+
+    -- Detect pyenv shim error
+    if result:match("pyenv: ruff: command not found") then
+        return { "uv", "run", "ruff", "server" }
+    end
+
+    -- Fallback (just in case)
+    return { "ruff", "server" }
+end
+
+
 ---@type vim.lsp.Config
 return {
-  cmd = { 'ruff', 'server' },
-  filetypes = { 'python' },
-  -- root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
-  settings = {},
+    cmd = ruff_cmd(),
+    filetypes = { 'python' },
+    -- root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+    settings = {},
 }

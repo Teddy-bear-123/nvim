@@ -36,7 +36,8 @@ local lsps = {
 
     -- LaTeX
     -- "tectonic",
-    -- "texlab",
+    "texlab",
+    "latexindent",
 
     -- English / Grammar
     "harper_ls"

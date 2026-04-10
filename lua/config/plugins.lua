@@ -6,6 +6,8 @@ require("lazy").setup({
         { "nvim-mini/mini.bufremove", version = false },
         {
             "nvim-treesitter/nvim-treesitter",
+            -- commit = "c82bf96f0a773d85304feeb695e1e23b2207ac35",
+            branch = 'main',
             build = ":TSUpdate",
             opts = {
                 highlight = { enable = true },
