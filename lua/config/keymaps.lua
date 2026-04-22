@@ -1,7 +1,7 @@
 local map = vim.keymap.set
 
 -- General keymaps
-map('n', '<leader>o', ':update<CR> :source<CR>')
+map('n', '<leader>o', ':restart<CR>')
 map('n', '<leader>v', ':e $MYVIMRC<CR>')
 map('n', '<leader>z', ':e ~/Dotfiles/.zshrc<CR>')
 map('n', '<leader>s', ':e #<CR>')
@@ -20,6 +20,13 @@ map("i", "<C-l>", "<Esc>la", { noremap = true })
 -- Visual mode
 map('x', '<', '<gv^')
 map('x', '>', '>gv^')
+
+-- Terminal mode
+map('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+map('t', '<C-h>', [[<C-\><C-n><C-w>h]])
+map('t', '<C-j>', [[<C-\><C-n><C-w>j]])
+map('t', '<C-k>', [[<C-\><C-n><C-w>k]])
+map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 
 -- Some how this works, lets me open files from Oil, and in buffers.
 -- vim.keymap.set('n', '<C-O>', function()

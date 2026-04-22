@@ -31,13 +31,13 @@ local lsps = {
     -- "ts_ls",
 
     -- Typst
-    "prettypst",
+    -- "prettypst",
     "tinymist",
 
     -- LaTeX
     -- "tectonic",
     "texlab",
-    "latexindent",
+    -- "latexindent",
 
     -- English / Grammar
     "harper_ls"
@@ -60,6 +60,9 @@ local lspconfig = require("lspconfig")
 -- })
 -- vim.lsp.enable("gdscript")
 
+local capablities = vim.lsp.protocol.make_client_capabilities
+
+vim.lsp.config("*", { capablities = capablities })
 
 vim.lsp.enable(lsps)
 
