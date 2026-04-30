@@ -33,6 +33,7 @@ local lsps = {
     -- Typst
     -- "prettypst",
     "tinymist",
+    "typstyle",
 
     -- LaTeX
     -- "tectonic",

@@ -44,3 +44,12 @@ vim.api.nvim_create_autocmd("ColorScheme", {
         vim.api.nvim_set_hl(0, "PmenuThumb", { bg = "#CBCCC6" })
     end,
 })
+
+
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "typst",
+  callback = function()
+    vim.opt_local.textwidth = 90
+  end
+})
