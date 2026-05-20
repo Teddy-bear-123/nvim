@@ -5,45 +5,12 @@ require "oil".setup()
 
 
 local lsps = {
-    -- Lua
-    "lua_ls",
-
-    -- C / C++
-    "clangd",
-
-    -- Rust
-    "rust_analyzer",
-
-    -- Go
-    "gopls",
-
+    "lua_ls", "clangd", "rust_analyzer", "gopls", "pyright", "ruff", "tinymist", "typstyle", "texlab", "harper_ls"
     -- C3
     -- "c3_lsp",
-
-    -- Python
-    "pyright",
-    "ruff",
-
-    -- Javascript
-
-
-    -- Typstscript
     -- "ts_ls",
-
-    -- Typst
-    -- "prettypst",
-    "tinymist",
-    "typstyle",
-
-    -- LaTeX
     -- "tectonic",
-    "texlab",
     -- "latexindent",
-
-    -- English / Grammar
-    "harper_ls"
-
-    -- Others
     -- "denols",
     -- "omnisharp",
     -- "jdtls",
@@ -53,17 +20,42 @@ local lsps = {
     -- "cssls",
 }
 
-local lspconfig = require("lspconfig")
 
--- vim.lsp.config("gdscript", { -- godot, gdscript
---     cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
---     filetypes = { "gdscript", "gd", "gdscript3" },
--- })
--- vim.lsp.enable("gdscript")
 
-local capablities = vim.lsp.protocol.make_client_capabilities
+vim.diagnostic.config({
+    virtual_text = {
+        format = function(diagnostic)
+            if diagnostic.source == "Harper" then
+                return nil
+            end
+            return diagnostic.message
+        end,
+        jump = {
+            severity = vim.diagnostic.severity.ERROR,
+            wrap = true,
+            on_jump = function(diagnostic, bufnr)
+                vim.diagnostic.open_float()
+            end,
+        },
+    },
+})
 
-vim.lsp.config("*", { capablities = capablities })
+require("lspconfig")
+
+
+vim.lsp.config('harper_ls', {
+    settings = {
+        ["harper-ls"] = {
+            userDictPath = "~/.config/harper-ls/dictionary.txt"
+        }
+    },
+})
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+
+
+vim.lsp.config("*", { capabilities = capabilities })
 
 vim.lsp.enable(lsps)
 
@@ -76,30 +68,6 @@ vim.filetype.add({
     },
 });
 
-
-
--- local parser_config = require "nvim-treesitter.parsers".get_parser_configs() -- c3 C3 c-3
--- parser_config.c3 = {
---     install_info = {
---         url = "https://github.com/c3lang/tree-sitter-c3",
---         files = { "src/parser.c", "src/scanner.c" },
---         branch = "main",
---     },
---     filetype = "c3",
---     sync_install = true, -- Set to true if you want to install synchronously
---     auto_install = true, -- Automatically install when opening a file
--- }
-
-
--- require('nvim-treesitter.configs').setup({
---     highlight = { enable = true, },
---     ensure_installed = { "lua", "vim", "vimdoc", "python", "javascript", "typescript", "rust", "c", "cpp", "c3" },
---     auto_install = true,
---     sync_install = true,
---     modules = {},
---     ignore_install = {},
---     install_dir = "",
--- })
 
 local telescope = require("telescope")
 local open_with_trouble = require("trouble.sources.telescope").open
@@ -123,3 +91,33 @@ end
 set_custom_highlights()
 
 vim.cmd("highlight EndOfBuffer guibg=bg guifg=bg")
+
+
+-- vim.lsp.config("gdscript", { -- godot, gdscript
+--     cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+--     filetypes = { "gdscript", "gd", "gdscript3" },
+-- })
+-- vim.lsp.enable("gdscript")
+
+-- local parser_config = require "nvim-treesitter.parsers".get_parser_configs() -- c3 C3 c-3
+-- parser_config.c3 = {
+--     install_info = {
+--         url = "https://github.com/c3lang/tree-sitter-c3",
+--         files = { "src/parser.c", "src/scanner.c" },
+--         branch = "main",
+--     },
+--     filetype = "c3",
+--     sync_install = true, -- Set to true if you want to install synchronously
+--     auto_install = true, -- Automatically install when opening a file
+-- }
+
+
+-- require('nvim-treesitter.configs').setup({
+--     highlight = { enable = true, },
+--     ensure_installed = { "lua", "vim", "vimdoc", "python", "javascript", "typescript", "rust", "c", "cpp", "c3" },
+--     auto_install = true,
+--     sync_install = true,
+--     modules = {},
+--     ignore_install = {},
+--     install_dir = "",
+-- })

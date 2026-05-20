@@ -12,12 +12,17 @@ vim.opt.smartindent = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.swapfile = false
 vim.opt.completeopt = { "menu", "menuone", "noselect", "popup" }
 vim.opt.pumheight = 10
+vim.opt.inccommand = "split"
+vim.opt.undodir = vim.fn.stdpath("data") .. "/undodir"
+vim.opt.undofile = true
+-- vim.opt.scrolloff = 5
+
+vim.opt.isfname:append("@-@")
 
 
 -- kainda want to

@@ -10,6 +10,8 @@ map({ 'n', 'v' }, '<leader>c', '1z=')
 
 map({ 'n', 'v' }, '<leader>n', ':norm ')
 
+map("n", "J", "mzJ`z", { noremap = true })
+
 -- Insert mode navigation
 map("i", "<C-h>", "<Esc>ha", { noremap = true })
 map("i", "<C-j>", "<Esc>ja", { noremap = true })
@@ -38,6 +40,39 @@ map('t', '<C-l>', [[<C-\><C-n><C-w>l]])
 -- 	vim.cmd('Open ' .. fname)
 -- end, { noremap = true, silent = true, desc = "Open but kainda better." })
 
+
+-- - "gra" (Normal and Visual mode) is mapped to |vim.lsp.buf.code_action()|
+-- - "gri" is mapped to |vim.lsp.buf.implementation()|
+-- - "grn" is mapped to |vim.lsp.buf.rename()|
+-- - "grr" is mapped to |vim.lsp.buf.references()|
+-- - "grt" is mapped to |vim.lsp.buf.type_definition()|
+-- - "grx" is mapped to |vim.lsp.codelens.run()|
+-- - "gO" is mapped to |vim.lsp.buf.document_symbol()|
+-- - CTRL-S (Insert mode) is mapped to |vim.lsp.buf.signature_help()|
+-- - |v_an| and |v_in| fall back to LSP |vim.lsp.buf.selection_range()| if
+--   treesitter is not active.
+-- - |gx| handles `textDocument/documentLink`. Example: with gopls, invoking gx
+--   on "os" in this Go code will open documentation externally: >
+--     package nvim
+--     import (
+--        "os"
+--     )
+-- <
+-- These LSP features are enabled by default:
+--
+-- - Diagnostics |lsp-diagnostic|. See |vim.diagnostic.config()| to customize.
+-- - `workspace/didChangeWatchedFiles` (except on Linux). If you see poor
+--   performance in big workspaces, run `:checkhealth vim.lsp` and look for "file
+--   watching". Try disabling file-watching: >lua
+--     local capabilities = vim.lsp.protocol.make_client_capabilities()
+--     if capabilities.workspace then
+--       capabilities.workspace.didChangeWatchedFiles = nil
+--     end
+--     vim.lsp.config('*', {
+--       capabilities = capabilities,
+--     })
+-- <
+--
 
 map('i', '<c-e>', function() vim.lsp.completion.get() end)
 
