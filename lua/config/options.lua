@@ -55,6 +55,6 @@ vim.api.nvim_create_autocmd("ColorScheme", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = "typst",
   callback = function()
-    vim.opt_local.textwidth = 90
+    vim.opt_local.textwidth = 99
   end
 })

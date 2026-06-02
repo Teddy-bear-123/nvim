@@ -1,9 +1,12 @@
-# nvim config stuff i kainda used (for v.11+ (should work?) and with lazy )
+# nvim config 
+
+- Using v0.13 nightly
+- 
 
 
 
 
-## kainda important stuff
+# other tools to download
 
 1.. Download LSP configurations:
 ```bash
