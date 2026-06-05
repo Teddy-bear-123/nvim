@@ -42,15 +42,6 @@ vim.diagnostic.config({
 
 require("lspconfig")
 
-
-vim.lsp.config('harper_ls', {
-    settings = {
-        ["harper-ls"] = {
-            userDictPath = "~/.config/harper-ls/dictionary.txt"
-        }
-    },
-})
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 
