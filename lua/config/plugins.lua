@@ -25,6 +25,19 @@ require("lazy").setup({
             dependencies = {
                 "nvim-lua/plenary.nvim" },
         },
+        {
+            "NeogitOrg/neogit",
+            lazy = true,
+            dependencies = {
+                "esmuellert/codediff.nvim",
+                "m00qek/baleia.nvim",
+                "nvim-telescope/telescope.nvim",
+            },
+            cmd = "Neogit",
+            keys = {
+                { "<leader>gg", "<cmd>Neogit<cr>", desc = "Show Neogit UI" }
+            }
+        }
         -- {
         -- 	"wstucco/c3.nvim",
         -- 	config = function()
@@ -36,4 +49,3 @@ require("lazy").setup({
 })
 
 vim.cmd.packadd("nvim.undotree")
-
