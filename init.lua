@@ -1,4 +1,3 @@
--- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -15,18 +14,18 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Load configuration modules
+vim.opt.messagesopt:append("maxheight:50,pager:<CR>,timeout:4000")
 
-require("vim._core.ui2").enable({
+require('vim._core.ui2').enable({
     enable = true,
     msg = {
-        target = "cmd",
-        pager = { height = 0.5 },
+        targets = 'cmd',
         dialog = { height = 0.5 },
-        cmd = { height = 0.5 },
-        msg = { height = 0.5, timeout = 5000},
-    }
+        msg = { height = 0.5 },
+        pager = { height = 0.999 },
+    },
 })
+
 require("config.options")
 require("config.keymaps")
 require("config.plugins")
