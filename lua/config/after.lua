@@ -83,6 +83,29 @@ set_custom_highlights()
 
 vim.cmd("highlight EndOfBuffer guibg=bg guifg=bg")
 
+require("jupynium").setup({
+    python_host = vim.fn.expand("~/.virtualenvs/jupynium/bin/python"),
+    default_notebook_URL = "http://localhost:8888/nbclassic",
+
+    auto_start_server = {
+        -- enable = true,
+        file_pattern = { "*.ju.*" },
+    },
+    auto_start_sync = {
+        -- enable = true,
+        file_pattern = { "*.ju.*" },
+    },
+    auto_download_ipynb = true,
+
+    autoscroll = {
+        enable = true,
+        mode = "always",
+        focus = "input",
+    },
+
+    shortsighted = true,
+})
+
 
 -- vim.lsp.config("gdscript", { -- godot, gdscript
 --     cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
