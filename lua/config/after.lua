@@ -5,7 +5,8 @@ require "oil".setup()
 
 
 local lsps = {
-    "lua_ls", "clangd", "rust_analyzer", "gopls", "pyright", "ruff", "tinymist", "typstyle", "texlab", "harper_ls"
+    "lua_ls", "clangd", "rust_analyzer", "gopls", "pyright", "ruff", "tinymist", "typstyle", "texlab", "harper_ls",
+    "biome", "html-lsp", "typescript-language-server", "hledger_lsp"
     -- C3
     -- "c3_lsp",
     -- "ts_ls",
@@ -56,6 +57,8 @@ vim.filetype.add({
         c3i = "c3",
         c3t = "c3",
         mdx = "markdown",
+        journal = "hledger",
+        hledger = "hledger",
     },
 });
 
